@@ -32,6 +32,13 @@ SQL> RENAME EMPOLYEE TO EMP_Detailes;
 
 Table renamed.
 
+SQL> TRUNCATE TABLE EMP_Detailes;
 
+Table truncated.
 
-SQL> ALTER TABLE EMPLO1 ADD SALARY NUMBER(50);
+SQL> DROP TABLE EMP_Detailes;
+
+Table dropped.
+
+SQL>
+
