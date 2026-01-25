@@ -1,0 +1,37 @@
+SQL> CREATE TABLE EMPOLYEE(EMPOLYEEID NUMBER(5) PRIMARY KEY,EMPLOYEENAME VARCHAR(20),AGE VARCHAR(2),ADDRESS VARCHAR(20));
+
+Table created.
+
+SQL> DESC EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(5)
+ EMPLOYEENAME                                       VARCHAR2(20)
+ AGE                                                NUMBER(2)
+ ADDRESS                                            VARCHAR2(20)
+
+SQL> ALTER TABLE EMPLOYEE ADD SALARY NUMBER(10);
+
+Table altered.
+
+SQL> ALTER TABLE EMPLOYEE ADD BRANCH VARCHAR(20);
+
+Table altered.
+
+SQL> DESC EMPLOYEE;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEEID                                         NUMBER(5)
+ EMPLOYEENAME                                       VARCHAR2(20)
+ AGE                                                NUMBER(2)
+ ADDRESS                                            VARCHAR2(20)
+ SALARY                                             NUMBER(10)
+ BRANCH                                             VARCHAR2(20)
+
+SQL> RENAME EMPOLYEE TO EMP_Detailes;
+
+Table renamed.
+
+
+
+SQL> ALTER TABLE EMPLO1 ADD SALARY NUMBER(50);
