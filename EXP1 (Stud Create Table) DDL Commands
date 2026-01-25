@@ -1,0 +1,43 @@
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+SQL> CREATE TABLE Student(StudentID NUMBER(5) PRIMARY KEY,StudentName VARCHAR(50),Age NUMBER(2),Department VARCHAR(20));
+
+Table created.
+
+SQL> desc Student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(5)
+ STUDENTNAME                                        VARCHAR2(50)
+ AGE                                                NUMBER(2)
+ DEPARTMENT                                         VARCHAR2(20)
+
+SQL> ALTER TABLE Student ADD Email VARCHAR(50);
+
+Table altered.
+
+SQL> desc Student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENTID                                 NOT NULL NUMBER(5)
+ STUDENTNAME                                        VARCHAR2(50)
+ AGE                                                NUMBER(2)
+ DEPARTMENT                                         VARCHAR2(20)
+ EMAIL                                              VARCHAR2(50)
+
+SQL> RENAME Student TO Student_Detailes;
+
+Table renamed.
+
+SQL> TRUNCATE TABLE Student_Detailes;
+
+Table truncated.
+
+SQL> DROP TABLE Student_Detailes;
+
+Table dropped.
+
+SQL>
+
