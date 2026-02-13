@@ -1,81 +1,47 @@
-
+-- ==============================
+--  CREATE TABLES
+-- ==============================
 
 SQL> CREATE TABLE Location(loc_id INT PRIMARY KEY,City VARCHAR(30));
-Table created.
 
 SQL> CREATE TABLE Department(dept_id INT PRIMARY KEY,dept_name VARCHAR(30),loc_id INT,FOREIGN KEY(loc_id)REFERENCES Location(loc_id));
-Table created.
 
-SQL> CREATE TABLE Job(job_id INT PRIMARY KEY,job_title VARCHAR(30),min_salary NUMBER (10),max_salary NUMBER(10));
-Table created.
+SQL> CREATE TABLE Job(job_id INT PRIMARY KEY,job_title VARCHAR(30),min_salary NUMBER (10),max_salary NUMBER(10));.
 
 SQL> CREATE TABLE Employee(emp_id INT PRIMARY KEY,emp_name VARCHAR(30),salary NUMBER(10),job_id INT,dept_id INT,FOREIGN KEY(job_id)REFERENCES Job(job_id),FOREIGN KEY(dept_id)REFERENCES Department(dept_id));
 
-Table created.
 
+-- ==============================
+-- INSERT DATA
+-- ==============================
 
 SQL> INSERT INTO Location VALUES(1,'Kochi');
-1 row created.
-
 SQL> INSERT INTO Location VALUES(2,'Trivandrum');
-1 row created.
-
 SQL> INSERT INTO Location VALUES(3,'Kozhikode');
-1 row created.
-
 SQL> INSERT INTO Location VALUES(4,'Kollam');
-1 row created.
-
 SQL> INSERT INTO Location VALUES(5,'Kottayam');
-1 row created.
-
 
 SQL> INSERT INTO Department VALUES(10,'HR',1);
-1 row created.
-
 SQL> INSERT INTO Department VALUES(20,'Finance',2);
-1 row created.
-
 SQL> INSERT INTO Department VALUES(30,'IT',3);
-1 row created.
-
 SQL> INSERT INTO Department VALUES(40,'HR',4);
-1 row created.
-
 SQL> INSERT INTO Department VALUES(50,'IT',5);
-1 row created.
-
 
 SQL> INSERT INTO Job VALUES(100,'Manager',5000,100000);
-1 row created.
-
 SQL> INSERT INTO Job VALUES(101,'Developer',30000,70000);
-1 row created.
-
 SQL> INSERT INTO Job VALUES(102,'Clerk',20000,40000);
-1 row created.
-
 SQL> INSERT INTO Job VALUES(103,'Staff',25000,40000);
-1 row created.
-
 SQL> INSERT INTO Job VALUES(104,'Tester',35000,60000);
-1 row created.
-
 
 SQL> INSERT INTO Employee VALUES(1,'ARYA',60000,100,10);
-1 row created.
-
 SQL> INSERT INTO Employee VALUES(2,'DEVI',40000,101,30);
-1 row created.
-
 SQL> INSERT INTO Employee VALUES(3,'ATHIRA',25000,102,20);
-1 row created.
-
 SQL> INSERT INTO Employee VALUES(4,'TINI',35000,101,40);
-1 row created.
-
 SQL> INSERT INTO Employee VALUES(5,'BINI',29000,102,NULL);
-1 row created.
+
+-- ==============================
+-- JOIN
+-- ==============================
 
 SQL> SELECT e.emp_name, j.job_title FROM Employee e INNER JOIN Job j ON e.job_id=j.job_id;
 
@@ -107,6 +73,10 @@ IT                             DEVI
 HR                             TINI
                                BINI
 
+-- ==============================
+-- AGGREGATE FUNCTIONS
+-- ==============================
+
 SQL> SELECT d.dept_name,SUM(e.salary)AS total_salary FROM employee e  JOIN Department d ON e.dept_id=d.dept_id GROUP BY d.dept_name;
 
 DEPT_NAME                      TOTAL_SALARY
@@ -114,7 +84,6 @@ DEPT_NAME                      TOTAL_SALARY
 IT                                    40000
 HR                                    95000
 Finance                               25000
-
 
 SQL> SELECT J.JOB_TITLE,avg(e.salary)AS avg_salary FROM Employee e JOIN Job j ON e.job_id=j.job_id GROUP BY j.job_title;
 
@@ -136,6 +105,9 @@ MAX_SALARY
 ----------
      40000
 
+-- ==============================
+-- SQL OPERATORS
+-- ==============================
 
 SQL> SELECT emp_name FROM Employee WHERE emp_name LIKE'A%';
 
