@@ -1,3 +1,5 @@
+
+
 SQL> CREATE TABLE Location(loc_id INT PRIMARY KEY,City VARCHAR(30));
 Table created.
 
