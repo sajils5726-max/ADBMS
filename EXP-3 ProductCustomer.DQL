@@ -20,7 +20,7 @@ SQL> INSERT INTO Product VALUES(101,'Laptop',5500,1);
 SQL> INSERT INTO Product VALUES(102,'Mobile',15000,2);
 SQL> INSERT INTO Product VALUES(103,'Tablet',20000,3);
 SQL> INSERT INTO Product VALUES(104,'Printer',10000,4);
-SQL> INSERT INTO Product VALUES(105,'Ponitor',12000,5);
+SQL> INSERT INTO Product VALUES(105,'Monitor',12000,5);
 
 SQL> SELECT*FROM Product;
 
@@ -30,7 +30,7 @@ SQL> SELECT*FROM Product;
        102 Mobile                    15000          2
        103 Tablet                    20000          3
        104 Printer                   10000          4
-       105 Ponitor                   12000          5
+       105 Monitor                   12000          5
 
 SQL> SELECT Name,City FROM Customer;
 
