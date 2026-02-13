@@ -1,38 +1,26 @@
+-- ==============================
+-- CREATE TABLES
+-- ==============================
+
 SQL> CREATE TABLE Customer1(CostomerID INT PRIMARY KEY,Name VARCHAR(30),City VARCHAR(30));
-Table created.
 
 SQL> CREATE TABLE Product1(ProductID INT PRIMARY KEY,ProductName VARCHAR(30),Price NUMBER(10),CustomerID INT,FOREIGN KEY(CustomerID)REFERENCES Customer(CustomerID));
-Table created.
+
+-- ==============================
+-- INSERT DATA
+-- ==============================
 
 SQL> INSERT INTO Customer VALUES(1,'Alice','Kochi');
-1 row created.
-
 SQL> INSERT INTO Customer VALUES(2,'Babu','Trivandrum');
-1 row created.
-
 SQL> INSERT INTO Customer VALUES(3,'Chithira','Kollam');
-1 row created.
-
 SQL> INSERT INTO Customer VALUES(4,'Shiva','Kottayam');
-1 row created.
-
 SQL> INSERT INTO Customer VALUES(5,'Sandhya','Trivandrum');
-1 row created.
 
 SQL> INSERT INTO Product VALUES(101,'Laptop',5500,1);
-1 row created.
-
 SQL> INSERT INTO Product VALUES(102,'Mobile',15000,2);
-1 row created.
-
 SQL> INSERT INTO Product VALUES(103,'Tablet',20000,3);
-1 row created.
-
 SQL> INSERT INTO Product VALUES(104,'Printer',10000,4);
-1 row created.
-
 SQL> INSERT INTO Product VALUES(105,'Ponitor',12000,5);
-1 row created.
 
 SQL> SELECT*FROM Product;
 
