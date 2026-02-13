@@ -87,7 +87,7 @@ SQL> SELECT*FROM Product ORDER BY Price ASC;
 ---------- -------------------- ---------- ----------
        101 Laptop                     5500          1
        104 Printer                   10000          4
-       105 Ponitor                   12000          5
+       105 Monitor                   12000          5
        102 Mobile                    15000          2
        103 Tablet                    20000          3
 
@@ -125,6 +125,6 @@ Laptop                     5500 Alice
 Mobile                    15000 Babu
 Tablet                    20000 Chithira
 Printer                   10000 Shiva
-Ponitor                   12000 Sandhya
+Monitor                   12000 Sandhya
 
 SQL>
