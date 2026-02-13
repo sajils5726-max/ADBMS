@@ -75,5 +75,133 @@ SQL> INSERT INTO Employee VALUES(4,'TINI',35000,101,40);
 SQL> INSERT INTO Employee VALUES(5,'BINI',29000,102,NULL);
 1 row created.
 
-SQL>
+SQL> SELECT e.emp_name, j.job_title FROM Employee e INNER JOIN Job j ON e.job_id=j.job_id;
 
+EMP_NAME                       JOB_TITLE
+------------------------------ ------------------------------
+ARYA                           Manager
+TINI                           Developer
+DEVI                           Developer
+BINI                           Clerk
+ATHIRA                         Clerk
+
+SQL> SELECT e.emp_name,d.dept_name FROM Employee e LEFT JOIN Department d ON e.dept_id=d.dept_id;
+
+EMP_NAME                       DEPT_NAME
+------------------------------ ------------------------------
+ARYA                           HR
+ATHIRA                         Finance
+DEVI                           IT
+TINI                           HR
+BINI
+
+SQL> SELECT d.dept_name, e.emp_name FROM Department d RIGHT JOIN Employee e ON d.dept_id=e.dept_id;
+
+DEPT_NAME                      EMP_NAME
+------------------------------ ------------------------------
+HR                             ARYA
+Finance                        ATHIRA
+IT                             DEVI
+HR                             TINI
+                               BINI
+
+SQL> SELECT d.dept_name,SUM(e.salary)AS total_salary FROM employee e  JOIN Department d ON e.dept_id=d.dept_id GROUP BY d.dept_name;
+
+DEPT_NAME                      TOTAL_SALARY
+------------------------------ ------------
+IT                                    40000
+HR                                    95000
+Finance                               25000
+
+
+SQL> SELECT J.JOB_TITLE,avg(e.salary)AS avg_salary FROM Employee e JOIN Job j ON e.job_id=j.job_id GROUP BY j.job_title;
+
+JOB_TITLE                      AVG_SALARY
+------------------------------ ----------
+Manager                             60000
+Clerk                               27000
+Developer                           37500
+
+SQL> SELECT MIN(salary)AS min_salary FROM Employee;
+
+MIN_SALARY
+----------
+     25000
+
+SQL> SELECT MAX(E.salary)AS max_salary FROM Employee e JOIN Department d ON e.dept_id=d.dept_id WHERE d.dept_name='IT';
+
+MAX_SALARY
+----------
+     40000
+
+
+SQL> SELECT emp_name FROM Employee WHERE emp_name LIKE'A%';
+
+EMP_NAME
+------------------------------
+ARYA
+ATHIRA
+
+SQL> SELECT emp_name FROM Employee WHERE emp_name LIKE'%A';
+
+EMP_NAME
+------------------------------
+ARYA
+ATHIRA
+
+SQL> SELECT emp_name FROM Employee WHERE dept_id IN(10,20);
+
+EMP_NAME
+------------------------------
+ARYA
+ATHIRA
+
+SQL> SELECT emp_name FROM Employee WHERE dept_id NOT IN(30);
+
+EMP_NAME
+------------------------------
+ARYA
+ATHIRA
+TINI
+
+SQL> SELECT emp_name FROM Employee e JOIN Department d ON  e.dept_id=d.dept_id WHERE salary>30000 AND d.dept_name='IT';
+
+EMP_NAME
+------------------------------
+DEVI
+
+SQL> SELECT emp_name FROM Employee e JOIN Department d ON  e.dept_id=d.dept_id WHERE salary<25000 OR d.dept_name='HR';
+
+EMP_NAME
+------------------------------
+ARYA
+TINI
+
+SQL> SELECT emp_name,salary FROM Employee WHERE salary BETWEEN 30000 AND 50000;
+
+EMP_NAME                           SALARY
+------------------------------ ----------
+DEVI                                40000
+TINI                                35000
+
+SQL> SELECT job_title,min_salary FROM Job WHERE min_salary BETWEEN 25000 AND 60000;
+
+JOB_TITLE                      MIN_SALARY
+------------------------------ ----------
+Developer                           30000
+Staff                               25000
+Tester                              35000
+
+SQL> SELECT emp_name FROM Employee WHERE job_id=100 UNION SELECT emp_name FROM Employee WHERE job_id=101;
+
+EMP_NAME
+------------------------------
+ARYA
+DEVI
+TINI
+
+SQL> SELECT*FROM EMPLOYEE WHERE DEPT_ID=30 AND SALARY>35000;
+
+    EMP_ID EMP_NAME                           SALARY     JOB_ID    DEPT_ID
+---------- ------------------------------ ---------- ---------- ----------
+         2 DEVI                                40000        101         30
