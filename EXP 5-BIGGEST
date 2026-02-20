@@ -1,0 +1,26 @@
+SQL> DECLARE
+  2  A number:=&A;
+  3  B number:=&B;
+  4  C number:=&C;
+  5  BEGIN
+  6  IF A>B AND A>C THEN
+  7  DBMS_OUTPUT.PUT_LINE(A||'is the biggest number');
+  8  ELSIF B>A AND B>C THEN
+  9  DBMS_OUTPUT.PUT_LINE(B||'is the biggest number');
+ 10  ELSE
+ 11  DBMS_OUTPUT.PUT_LINE(C||'is the biggest number');
+ 12  END IF;
+ 13  END;
+ 14  /
+Enter value for a: 5
+old   2: A number:=&A;
+new   2: A number:=5;
+Enter value for b: 4
+old   3: B number:=&B;
+new   3: B number:=4;
+Enter value for c: 6
+old   4: C number:=&C;
+new   4: C number:=6;
+6is the biggest number
+
+PL/SQL procedure successfully completed.
