@@ -1,0 +1,23 @@
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+SQL> SET SERVEROUTPUT ON
+SQL> DECLARE
+  2  A number:=&A;
+  3  B number:=&B;
+  4  C number;
+  5  BEGIN
+  6  C:=A+B;
+  7  DBMS_OUTPUT.PUT_LINE('Sum is'|| C);
+  8  END;
+  9  /
+Enter value for a: 5
+old   2: A number:=&A;
+new   2: A number:=5;
+Enter value for b: 4
+old   3: B number:=&B;
+new   3: B number:=4;
+Sum is9
+
+PL/SQL procedure successfully completed.
