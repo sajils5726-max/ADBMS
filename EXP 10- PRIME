@@ -1,0 +1,31 @@
+SQL> DECLARE
+  2    N NUMBER:=&N;
+  3    I NUMBER;
+  4    C NUMBER:=0;
+  5  BEGIN
+  6     IF N<2 THEN
+  7       DBMS_OUTPUT.PUT_LINE('THE NUMBER'||N||'IS NOT PRIME');
+  8     ELSE
+  9     FOR I IN 2.. N-1 LOOP
+ 10       IF MOD(N,I)=0 THEN
+ 11          C:=1;
+ 12          EXIT;
+ 13       END IF;
+ 14     END LOOP;
+ 15     IF C=0 THEN
+ 16         DBMS_OUTPUT.PUT_LINE('THE NUMBER'||N||'IS PRIME');
+ 17     ELSE
+ 18         DBMS_OUTPUT.PUT_LINE('THE NUMBER'||N||'IS NOT PRIME');
+ 19     END IF;
+ 20     END IF;
+ 21  END;
+ 22  /
+===================
+OUTPUT
+===================
+Enter value for n: 7
+old   2:   N NUMBER:=&N;
+new   2:   N NUMBER:=7;
+THE NUMBER7IS PRIME
+
+PL/SQL procedure successfully completed.
