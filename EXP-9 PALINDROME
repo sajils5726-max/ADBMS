@@ -1,21 +1,21 @@
-SQL> DECLARE
-  2    N NUMBER:=&N;
-  3    REV NUMBER:=0;
-  4    REM NUMBER;
-  5    TEMP NUMBER:=N;
-  6  BEGIN
-  7     WHILE N>0 LOOP
-  8       REM:=MOD(N,10);
-  9       REV:=(REV*10)+REM;
- 10       N:=TRUNC(N/10);
- 11     END LOOP;
- 12     IF TEMP=REV THEN
- 13       DBMS_OUTPUT.PUT_LINE(TEMP||'IS PALINDROME');
- 14     ELSE
- 15       DBMS_OUTPUT.PUT_LINE(TEMP||'IS NOT PALINDROME');
- 16     END IF;
- 17  END;
- 18 /
+DECLARE
+  N NUMBER:=&N;
+  REV NUMBER:=0;
+  REM NUMBER;
+  TEMP NUMBER:=N;
+BEGIN
+   WHILE N>0 LOOP
+     REM:=MOD(N,10);
+     REV:=(REV*10)+REM;
+     N:=TRUNC(N/10);
+   END LOOP;
+   IF TEMP=REV THEN
+     DBMS_OUTPUT.PUT_LINE(TEMP||'IS PALINDROME');
+   ELSE
+     DBMS_OUTPUT.PUT_LINE(TEMP||'IS NOT PALINDROME');
+   END IF;
+END;
+/
 ==================== 
 OUTPUT
 ====================
