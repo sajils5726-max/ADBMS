@@ -1,0 +1,14 @@
+CREATE TABLE EMPLOY(eno number(4),ename varchar(14),dgn varchar(18),sal number(6),dept number(2));
+INSERT INTO EMPLOY VALUES(1010,'Sree','Manager',50000,12);
+INSERT INTO EMPLOY VALUES(1011,'Reena','Engineer',25000,13);
+INSERT INTO EMPLOY VALUES(1012,'Anjana','Tester',25000,14);
+
+
+DECLARE
+N NUMBER(4):=&N;
+EN VARCHAR(10);
+S NUMBER(6);
+BEGIN
+SELECT ENO ENAME,ENAME,SAL INTO N,EN,S FROM employ  WHERE ENO=N;
+DBMS_OUTPUT.PUT_LINE(N||''||EN||''||S);
+END;
