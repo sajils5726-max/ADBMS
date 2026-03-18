@@ -1,0 +1,22 @@
+CREATE OR REPLACE PROCEDURE pr3(currency IN OUT NUMBER) IS
+BEGIN
+    currency := currency * 82;
+END;
+/
+
+DECLARE 
+    currency NUMBER := &currency;
+BEGIN
+    pr3(currency);
+    DBMS_OUTPUT.PUT_LINE(currency);
+END;
+/
+
+
+OUTPUT
+========
+
+Enter value for currency: 300
+old   2:     currency NUMBER := &currency;
+new   2:     currency NUMBER := 300;
+24600
