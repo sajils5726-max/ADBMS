@@ -1,0 +1,33 @@
+CREATE TABLE EMPLOY(eno number(4),ename varchar(14),dgn varchar(18),sal number(6),dept number(2));
+INSERT INTO EMPLOY VALUES(1010,'Sree','Manager',50000,12);
+INSERT INTO EMPLOY VALUES(1011,'Reena','Engineer',25000,13);
+INSERT INTO EMPLOY VALUES(1012,'Anjana','Tester',25000,14);
+
+SQL> CREATE OR REPLACE FUNCTION FN2(N NUMBER)
+  2  RETURN NUMBER
+  3  IS
+  4  S EMPLOY.SAL%TYPE;
+  5  BEGIN
+  6   SELECT MAX(SAL) INTO S
+  7  FROM EMPLOY
+  8  WHERE ENO=N;
+  9  RETURN S*0.10;
+ 10  END;
+ 11  /
+
+Function created.
+
+SQL> DECLARE
+  2  N EMPLOY.ENO%TYPE:=&N;
+  3  COMM NUMBER;
+  4  BEGIN
+  5  COMM:=FN2(N);
+  6  DBMS_OUTPUT.PUT_LINE('COMMISSION IS'||COMM);
+  7  END;
+  8  /
+Enter value for n: 1012
+old   2: N EMPLOY.ENO%TYPE:=&N;
+new   2: N EMPLOY.ENO%TYPE:=1012;
+COMMISSION IS2500
+
+PL/SQL procedure successfully completed.
