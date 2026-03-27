@@ -1,0 +1,117 @@
+db.createCollection("customers")
+{ ok: 1 }
+
+customerdb> db.customer.insertOne({name:"Akhila",city:"kochi",age:25,phone:"9876543210"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69c4af1bb782cdad5b3682d1')
+}
+
+customerdb> db.customers.insertMany([{name:"Kochu",city:"Trivandrum",age:28,phone:"9123456789"},{name:"Aswin",city:"Kollam",age:21,phone:"9988776655"},{name:"Kannan",city:"Kochi",age:32,phone:"999888777666"},{name:"Anu",city:"Kottayam",age:24,phone:"9090909090"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69c4b288b782cdad5b3682d2'),
+    '1': ObjectId('69c4b288b782cdad5b3682d3'),
+    '2': ObjectId('69c4b288b782cdad5b3682d4'),
+    '3': ObjectId('69c4b288b782cdad5b3682d5')
+  }
+}
+customerdb> db.customers.find()
+[
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d2'),
+    name: 'Kochu',
+    city: 'Trivandrum',
+    age: 28,
+    phone: '9123456789'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d3'),
+    name: 'Aswin',
+    city: 'Kollam',
+    age: 21,
+    phone: '9988776655'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d4'),
+    name: 'Kannan',
+    city: 'Kochi',
+    age: 32,
+    phone: '999888777666'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d5'),
+    name: 'Anu',
+    city: 'Kottayam',
+    age: 24,
+    phone: '9090909090'
+  }
+]
+customerdb> db.customers.find().pretty()
+[
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d2'),
+    name: 'Kochu',
+    city: 'Trivandrum',
+    age: 28,
+    phone: '9123456789'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d3'),
+    name: 'Aswin',
+    city: 'Kollam',
+    age: 21,
+    phone: '9988776655'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d4'),
+    name: 'Kannan',
+    city: 'Kochi',
+    age: 32,
+    phone: '999888777666'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d5'),
+    name: 'Anu',
+    city: 'Kottayam',
+    age: 24,
+    phone: '9090909090'
+  }
+]
+
+customerdb> db.customers.updateOne({name:"Kannan"},{$set:{age:29}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+customerdb> db.customers.deleteOne({name:"Aswin"})
+{ acknowledged: true, deletedCount: 1 }
+customerdb> db.customers.find().pretty()
+[
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d2'),
+    name: 'Kochu',
+    city: 'Trivandrum',
+    age: 28,
+    phone: '9123456789'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d4'),
+    name: 'Kannan',
+    city: 'Kochi',
+    age: 29,
+    phone: '999888777666'
+  },
+  {
+    _id: ObjectId('69c4b288b782cdad5b3682d5'),
+    name: 'Anu',
+    city: 'Kottayam',
+    age: 24,
+    phone: '9090909090'
+  }
+]
+customerdb>
